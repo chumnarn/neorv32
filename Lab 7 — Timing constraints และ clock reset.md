@@ -211,9 +211,9 @@ end if;
 
 ใช้ตัวอย่างเป้าหมาย 100 MHz:
 
-\[
+$$
 T=\frac{1}{100\,\mathrm{MHz}}=10\,\mathrm{ns}
-\]
+$$
 
 | Parameter | ค่าฝึก | ความหมาย |
 |---|---:|---|
@@ -233,21 +233,17 @@ OpenSTA ใช้หน่วยจาก Liberty file แรกที่อ่�
 
 สำหรับ synchronous input แบบง่าย:
 
-\[
-D_{\mathrm{in,max}}
+$$D_{\mathrm{in,max}}
 =
 t_{\mathrm{CQ,max,external}}
 +
-t_{\mathrm{board,max}}
-\]
+t_{\mathrm{board,max}}$$
 
-\[
-D_{\mathrm{in,min}}
+$$D_{\mathrm{in,min}}
 =
 t_{\mathrm{CQ,min,external}}
 +
-t_{\mathrm{board,min}}
-\]
+t_{\mathrm{board,min}}$$
 
 หาก external clock และ chip clock มี board skew ต้องรวม relative clock arrival ไว้ด้วย
 
@@ -255,21 +251,17 @@ t_{\mathrm{board,min}}
 
 สำหรับ output ไปยัง external receiver:
 
-\[
-D_{\mathrm{out,max}}
+$$D_{\mathrm{out,max}}
 =
 t_{\mathrm{setup,external}}
 +
-t_{\mathrm{board,max}}
-\]
+t_{\mathrm{board,max}}$$
 
-\[
-D_{\mathrm{out,min}}
+$$D_{\mathrm{out,min}}
 =
 t_{\mathrm{board,min}}
 -
-t_{\mathrm{hold,external}}
-\]
+t_{\mathrm{hold,external}}$$
 
 สูตรนี้สมมติว่า clock reference ไม่มี relative skew เพิ่มเติม ค่า `-min` จึงอาจเป็นลบ และไม่ควรถูกตั้งเป็นศูนย์โดยอัตโนมัติ
 
@@ -760,15 +752,13 @@ OpenSTA มี `check_setup` สำหรับตรวจความครบ
 
 สำหรับ reg-to-reg path แบบง่าย:
 
-\[
-Slack_{\mathrm{setup}}
+$$Slack_{\mathrm{setup}}
 =
 T+L_{\mathrm{capture}}-L_{\mathrm{launch}}
 -t_{\mathrm{CQ,max}}
 -t_{\mathrm{data,max}}
 -t_{\mathrm{setup}}
--U_{\mathrm{setup}}
-\]
+-U_{\mathrm{setup}}$$
 
 ตัวอย่าง ideal clock:
 
@@ -780,26 +770,22 @@ Setup time                =  0.15 ns
 Setup uncertainty         =  0.25 ns
 ```
 
-\[
-Slack_{\mathrm{setup}}
+$$Slack_{\mathrm{setup}}
 =10.00-0.20-6.80-0.15-0.25
-=2.60\,\mathrm{ns}
-\]
+=2.60\,\mathrm{ns}$$
 
 #### 7.14.2 อ่าน hold report
 
 สำหรับ reg-to-reg path แบบง่าย:
 
-\[
-Slack_{\mathrm{hold}}
+$$Slack_{\mathrm{hold}}
 =
 L_{\mathrm{launch}}
 +t_{\mathrm{CQ,min}}
 +t_{\mathrm{data,min}}
 -L_{\mathrm{capture}}
 -t_{\mathrm{hold}}
--U_{\mathrm{hold}}
-\]
+-U_{\mathrm{hold}}$$
 
 ตัวอย่างหลัง CTS:
 
@@ -812,11 +798,9 @@ Hold time                 = 0.05 ns
 Hold uncertainty          = 0.10 ns
 ```
 
-\[
-Slack_{\mathrm{hold}}
+$$Slack_{\mathrm{hold}}
 =0.30+0.08+0.10-0.50-0.05-0.10
-=-0.17\,\mathrm{ns}
-\]
+=-0.17\,\mathrm{ns}$$
 
 กรณีนี้มี hold violation ซึ่งการลดความถี่ไม่ได้แก้โดยตรง
 

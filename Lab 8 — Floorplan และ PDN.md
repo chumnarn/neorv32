@@ -115,55 +115,47 @@ rg -n -i \
 
 กำหนด:
 
-- \(A_{\text{std}}\): พื้นที่ mapped standard cells
-- \(U_{\text{target}}\): utilization เป้าหมายในรูปอัตราส่วน
-- \(A_{\text{macro}}\): พื้นที่ hard macros
-- \(A_{\text{reserved}}\): พื้นที่สำหรับ halo, channel และบริเวณที่ห้ามวาง cells
+- $$A_{\text{std}}$$: พื้นที่ mapped standard cells
+- $$U_{\text{target}}$$: utilization เป้าหมายในรูปอัตราส่วน
+- $$A_{\text{macro}}$$: พื้นที่ hard macros
+- $$A_{\text{reserved}}$$: พื้นที่สำหรับ halo, channel และบริเวณที่ห้ามวาง cells
 
 สำหรับแบบที่ไม่มี hard macro:
 
-\[
-A_{\text{core,initial}}
+$$A_{\text{core,initial}}
 \approx
-\frac{A_{\text{std}}}{U_{\text{target}}}
-\]
+\frac{A_{\text{std}}}{U_{\text{target}}}$$
 
 สำหรับแบบที่มี macros:
 
-\[
-A_{\text{core,initial}}
+$$A_{\text{core,initial}}
 \approx
 \frac{A_{\text{std}}}{U_{\text{target}}}
 +
 A_{\text{macro}}
 +
-A_{\text{reserved}}
-\]
+A_{\text{reserved}}$$
 
 สมการนี้ใช้ประมาณขนาดเริ่มต้น หลังสร้าง rows จริงต้องตรวจพื้นที่ที่วาง standard cells ได้อีกครั้ง
 
 **ตัวอย่างการคำนวณ**
 
-สมมติ mapped standard-cell area เท่ากับ \(180{,}000\ \mu m^2\) และเลือก utilization เริ่มต้น 35%:
+สมมติ mapped standard-cell area เท่ากับ $$180{,}000\ \mu m^2$$ และเลือก utilization เริ่มต้น 35%:
 
-\[
-A_{\text{core}}
+$$A_{\text{core}}
 =
 \frac{180{,}000}{0.35}
 \approx
-514{,}286\ \mu m^2
-\]
+514{,}286\ \mu m^2$$
 
 ถ้าใช้ core สี่เหลี่ยมจัตุรัส:
 
-\[
-W_{\text{core}}=H_{\text{core}}
+$$W_{\text{core}}=H_{\text{core}}
 \approx
 \sqrt{514{,}286}
-\approx717.1\ \mu m
-\]
+\approx717.1\ \mu m$$
 
-อาจเลือกพื้นที่เริ่มต้นประมาณ \(740\times740\ \mu m\) แล้วตรวจการปรับเข้ากับ site grid จาก ODB
+อาจเลือกพื้นที่เริ่มต้นประมาณ $$740\times740\ \mu m$$ แล้วตรวจการปรับเข้ากับ site grid จาก ODB
 
 **ข้อควรพิจารณา**
 
@@ -178,8 +170,7 @@ W_{\text{core}}=H_{\text{core}}
 
 ประมาณความยาวที่ต้องใช้:
 
-\[
-L_{\text{side,required}}
+$$L_{\text{side,required}}
 =
 \sum_i W_{\text{pad},i}
 +
@@ -187,8 +178,7 @@ L_{\text{side,required}}
 +
 L_{\text{corner allowance}}
 +
-L_{\text{required gaps}}
-\]
+L_{\text{required gaps}}$$
 
 ใช้มิติจาก physical views และ placement rules ของ template ไม่ใช้เพียงขนาด bond opening
 
@@ -216,13 +206,13 @@ CORE_AREA: [430, 430, 1170, 1170]
 
 ตัวอย่างนี้ให้ core ขนาด:
 
-\[
+$$
 W_{\text{core}}=1170-430=740\ \mu m
-\]
+$$
 
-\[
+$$
 H_{\text{core}}=1170-430=740\ \mu m
-\]
+$$
 
 พื้นที่ระหว่าง die boundary กับ core boundary มีระยะ 430 µm ต่อด้าน แต่พื้นที่ดังกล่าวต้องถูกแบ่งให้ pad ring, power routing, keepout และองค์ประกอบ finishing ตาม template
 
@@ -526,21 +516,21 @@ OpenROAD ระบุว่า `-floorplanning` จะละเว้น non-fix
 
 สำหรับ cut rectangle เดี่ยวและ landing rectangle:
 
-\[
+$$
 E_L=x_{\text{cut,min}}-x_{\text{metal,min}}
-\]
+$$
 
-\[
+$$
 E_R=x_{\text{metal,max}}-x_{\text{cut,max}}
-\]
+$$
 
-\[
+$$
 E_B=y_{\text{cut,min}}-y_{\text{metal,min}}
-\]
+$$
 
-\[
+$$
 E_T=y_{\text{metal,max}}-y_{\text{cut,max}}
-\]
+$$
 
 ตรวจทั้ง lower และ upper metal เทียบกับกฎที่ใช้กับ via ชนิดนั้น
 
@@ -548,15 +538,15 @@ E_T=y_{\text{metal,max}}-y_{\text{cut,max}}
 
 ถ้า cut อยู่ที่:
 
-\[
+$$
 [100.00,\ 200.00,\ 100.40,\ 200.40]
-\]
+$$
 
 และ landing อยู่ที่:
 
-\[
+$$
 [99.90,\ 199.90,\ 100.50,\ 200.50]
-\]
+$$
 
 จะได้ enclosure 0.10 µm ทุกด้าน แต่ยังตัดสินว่าผ่านไม่ได้จนกว่าจะเทียบกับ rule ของ PDK
 

@@ -534,15 +534,15 @@ Memory เป็นจุดที่อาจทำให้ synthesis สำ�
 
 คำนวณขนาด logical storage:
 
-\[
+$$
 N_{\text{bits}}=N_{\text{words}}\times W_{\text{data}}
-\]
+$$
 
 ตัวอย่าง RAM 1,024 words × 32 bits:
 
-\[
+$$
 N_{\text{bits}}=32{,}768\ \text{bits}
-\]
+$$
 
 ถ้า memory ถูก implement ด้วย flip-flops พื้นที่และ cell count อาจเพิ่มขึ้นมาก รวมทั้งมี mux และ write-control logic เพิ่มเติม
 
@@ -602,13 +602,13 @@ rg -n -i \
 
 พื้นที่ standard cells โดยหลักคำนวณจาก:
 
-\[
+$$
 A_{\text{cells}}=\sum_i N_iA_i
-\]
+$$
 
-โดย \(N_i\) คือจำนวน instances และ \(A_i\) คือ area ของ cell type นั้นตาม library
+โดย $$N_i$$ คือจำนวน instances และ $$A_i$$ คือ area ของ cell type นั้นตาม library
 
-ต้องตรวจหน่วยจาก library/report ก่อนบันทึกเป็น \(\mu m^2\)
+ต้องตรวจหน่วยจาก library/report ก่อนบันทึกเป็น $$\mu m^2$$
 
 **Synthesis cell area ไม่ใช่ die area หรือ core area** เพราะยังไม่รวมพื้นที่สำหรับ placement whitespace, routing, PDN, macros ตามรูปแบบรายงาน และองค์ประกอบ physical อื่น
 

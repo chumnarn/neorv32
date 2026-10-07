@@ -310,15 +310,15 @@ CLOCK_FREQUENCY,50000000,Hz,initial lab target,configuration specification,propo
 
 ค่าความถี่ต้องสอดคล้องกันทั้งสามส่วน:
 
-\[
+$$
 T_{\mathrm{clock}}=\frac{10^9}{f_{\mathrm{clock}}}\;\mathrm{ns}
-\]
+$$
 
 สำหรับ 50 MHz:
 
-\[
+$$
 T_{\mathrm{clock}}=20\;\mathrm{ns}
-\]
+$$
 
 จึงต้องตรวจ:
 
@@ -551,13 +551,13 @@ Template แยก `chip_top` ซึ่งประกอบ padframe ออก�
 
 สำหรับ interface ตัวอย่างที่ไม่มี GPIO inputs:
 
-\[
+$$
 N_{\mathrm{input}}=1_{\mathrm{clock}}+1_{\mathrm{reset}}+1_{\mathrm{UART\ RX}}=3
-\]
+$$
 
-\[
+$$
 N_{\mathrm{output}}=1_{\mathrm{UART\ TX}}+8_{\mathrm{GPIO}}=9
-\]
+$$
 
 จำนวนนี้เป็นเพียง signal pads ไม่รวม power/ground pads, corner cells, fillers หรือขาเพิ่มเติมของ design จริง
 

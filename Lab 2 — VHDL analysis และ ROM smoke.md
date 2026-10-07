@@ -450,26 +450,26 @@ end architecture;
 
 สำหรับ UART 8-N-1 หนึ่ง character ใช้:
 
-\[
+$$
 N_{\mathrm{bits}}=1+8+1=10
-\]
+$$
 
 ที่ 19,200 baud:
 
-\[
+$$
 T_{\mathrm{bit}}=\frac{1}{19200}
 \approx 52.083\;\mu s
-\]
+$$
 
-\[
+$$
 T_{\mathrm{character}}\approx 520.833\;\mu s
-\]
+$$
 
 ข้อความ 40 characters จึงใช้เวลาส่งประมาณ:
 
-\[
+$$
 40\times520.833\;\mu s\approx20.833\;ms
-\]
+$$
 
 การตั้ง simulation เพียง 100 µs อาจยังไม่เห็นแม้แต่ character แรกครบหนึ่งตัว
 
